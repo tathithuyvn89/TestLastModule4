@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao moi Tinh</title>
+</head>
+<body>
+<h1 style="color: gold" th:text="${message}"></h1>
+<form th:object="${newCity}" th:action="@{/createNewCity}" method="post" >
+    <table>
+        <tr>
+            <td>Ten thanh pho: </td>
+            <td><input type="text" th:field="*{name}"></td>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+        </tr>
+        <tr>
+            <td>Quoc gia:</td>
+            <td>
+                <select th:field="*{country}">
+                    <option th:each="p : ${countries}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Dien tich: </td>
+            <td><input type="text" th:field="*{area}"></td>
+            <div th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</div>
+        </tr>
+        <tr>
+            <td>Dan so: </td>
+            <td><input type="text" th:field="*{population}"></td>
+            <div th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population Error</div>
+        </tr>
+        <tr>
+            <td>GDP: </td>
+            <td><input type="text" th:field="*{gdp}"></td>
+        </tr>
+        <tr>
+            <td>Gioi thieu: </td>
+            <td><textarea th:field="*{description}" cols="20" rows="7"></textarea></td>
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</div>
+        </tr>
+        <tr>
+            <td><button type="submit">Them thanh pho</button> </td>
+            <td><button type="button"><a th:href="@{/home}">Thoat</a></button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
