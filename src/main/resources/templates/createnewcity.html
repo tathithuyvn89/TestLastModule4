@@ -6,12 +6,13 @@
 </head>
 <body>
 <h1 style="color: gold" th:text="${message}"></h1>
-<form th:object="${newCity}" th:action="@{/createNewCity}" method="post" >
+<form  onsubmit="return validform()" th:object="${city}" th:action="@{/createNewCity}" method="post" >
     <table>
         <tr>
             <td>Ten thanh pho: </td>
             <td><input type="text" th:field="*{name}"></td>
-            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+            <td> <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div></td>
+
         </tr>
         <tr>
             <td>Quoc gia:</td>
@@ -24,12 +25,12 @@
         <tr>
             <td>Dien tich: </td>
             <td><input type="text" th:field="*{area}"></td>
-            <div th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</div>
+            <td><div th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</div></td>
         </tr>
         <tr>
             <td>Dan so: </td>
             <td><input type="text" th:field="*{population}"></td>
-            <div th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population Error</div>
+            <td th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population Error</td>
         </tr>
         <tr>
             <td>GDP: </td>

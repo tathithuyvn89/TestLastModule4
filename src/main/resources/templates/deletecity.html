@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Xoa thanh pho</h1>
+<form method="post" th:action="@{/removecity}" th:object="${city}">
+    <input type="hidden" th:field="*{id}">
+    <p>Ban co chac chan muon xoa thanh pho</p>
+    <p th:text="${city.name}"></p>
+    <button>Xoa</button>
+    <button type="button"><a th:href="@{/home}">Thoat</a></button>
+</form>
+</body>
+</html>

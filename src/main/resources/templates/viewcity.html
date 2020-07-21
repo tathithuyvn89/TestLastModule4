@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>City</title>
+</head>
+<body>
+<p>Ten: </p>
+<p th:text="${city.name}"></p>
+<p>Dien tich: </p>
+<p th:text="${city.area}"></p>
+<p>GDP: </p>
+<p th:text="${city.gdp}"></p>
+<p>Dan so: </p>
+<p th:text="${city.population}"></p>
+<p>Gioi thieu: </p>
+<p th:text="${city.description}"></p>
+<button type="button"><a th:href="@{/home}">Thoat</a></button>
+</body>
+</html>
